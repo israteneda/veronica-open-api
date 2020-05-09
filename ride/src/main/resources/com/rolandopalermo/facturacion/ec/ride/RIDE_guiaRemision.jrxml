@@ -64,6 +64,12 @@
 		<field name="descripcion" class="java.lang.String">
 			<fieldDescription><![CDATA[descripcion]]></fieldDescription>
 		</field>
+		<field name="codigoInterno" class="java.lang.String">
+			<fieldDescription><![CDATA[codigoInterno]]></fieldDescription>
+		</field>
+		<field name="codigoAdicional" class="java.lang.String">
+			<fieldDescription><![CDATA[codigoAdicional]]></fieldDescription>
+		</field>
 	</subDataset>
 	<parameter name="numeroAutorizacion" class="java.lang.String"/>
 	<parameter name="fechaAutorizacion" class="java.lang.String"/>
@@ -171,17 +177,11 @@
 	<field name="motivoTraslado" class="java.lang.String">
 		<fieldDescription><![CDATA[/guiaRemision/destinatarios/destinatario/motivoTraslado]]></fieldDescription>
 	</field>
-	<field name="codigoInterno" class="java.lang.String">
-		<fieldDescription><![CDATA[/guiaRemision/destinatarios/destinatario/detalles/detalle/codigoInterno]]></fieldDescription>
-	</field>
 	<field name="descripcion" class="java.lang.String">
 		<fieldDescription><![CDATA[/guiaRemision/destinatarios/destinatario/detalles/detalle/descripcion]]></fieldDescription>
 	</field>
 	<field name="cantidad" class="java.lang.String">
 		<fieldDescription><![CDATA[/guiaRemision/destinatarios/destinatario/detalles/detalle/cantidad]]></fieldDescription>
-	</field>
-	<field name="codigoAdicional" class="java.lang.String">
-		<fieldDescription><![CDATA[/guiaRemision/destinatarios/destinatario/detalles/detalle/codigoAdicional]]></fieldDescription>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -631,7 +631,9 @@
 							<textFieldExpression><![CDATA[$F{motivoTraslado}]]></textFieldExpression>
 						</textField>
 						<staticText>
-							<reportElement style="etiqueta-celda" mode="Opaque" x="70" y="191" width="100" height="20" forecolor="#FFFFFF" backcolor="#013870" uuid="a9f2c9b9-7cb6-42a5-bda6-2ed5dde57af8"/>
+							<reportElement style="etiqueta-celda" mode="Opaque" x="25" y="192" width="125" height="20" forecolor="#FFFFFF" backcolor="#013870" uuid="a9f2c9b9-7cb6-42a5-bda6-2ed5dde57af8">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
 							<box>
 								<pen lineColor="#013870"/>
 								<topPen lineColor="#013870"/>
@@ -642,7 +644,9 @@
 							<text><![CDATA[Cantidad]]></text>
 						</staticText>
 						<staticText>
-							<reportElement style="etiqueta-celda" mode="Opaque" x="170" y="191" width="100" height="20" forecolor="#FFFFFF" backcolor="#013870" uuid="7729ff55-f96b-4400-96a8-218b58b58311"/>
+							<reportElement style="etiqueta-celda" mode="Opaque" x="150" y="192" width="125" height="20" forecolor="#FFFFFF" backcolor="#013870" uuid="7729ff55-f96b-4400-96a8-218b58b58311">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
 							<box>
 								<pen lineColor="#013870"/>
 								<topPen lineColor="#013870"/>
@@ -653,7 +657,9 @@
 							<text><![CDATA[Descripción]]></text>
 						</staticText>
 						<staticText>
-							<reportElement style="etiqueta-celda" mode="Opaque" x="270" y="191" width="100" height="20" forecolor="#FFFFFF" backcolor="#013870" uuid="43f1cb26-3d5f-4f60-89a3-c688b27fd138"/>
+							<reportElement style="etiqueta-celda" mode="Opaque" x="275" y="192" width="125" height="20" forecolor="#FFFFFF" backcolor="#013870" uuid="43f1cb26-3d5f-4f60-89a3-c688b27fd138">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
 							<box>
 								<pen lineColor="#013870"/>
 								<topPen lineColor="#013870"/>
@@ -664,7 +670,9 @@
 							<text><![CDATA[Código Principal]]></text>
 						</staticText>
 						<staticText>
-							<reportElement style="etiqueta-celda" mode="Opaque" x="370" y="191" width="100" height="20" forecolor="#FFFFFF" backcolor="#013870" uuid="40ba1098-d0a5-4706-a362-d782fb1ebc94"/>
+							<reportElement style="etiqueta-celda" mode="Opaque" x="400" y="192" width="125" height="20" forecolor="#FFFFFF" backcolor="#013870" uuid="40ba1098-d0a5-4706-a362-d782fb1ebc94">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
 							<box>
 								<pen lineColor="#013870"/>
 								<topPen lineColor="#013870"/>
@@ -675,27 +683,41 @@
 							<text><![CDATA[Código Auxiliar]]></text>
 						</staticText>
 						<componentElement>
-							<reportElement x="70" y="210" width="400" height="25" uuid="f9cae7fc-f952-46a1-81e9-e9980c41c313">
-								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<reportElement x="25" y="213" width="500" height="30" uuid="add5381a-3eef-4082-b307-a15be8e63598">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							</reportElement>
 							<jr:list>
-								<datasetRun subDataset="destinatariosDS" uuid="ad0bd825-506c-435e-9bc3-4f5247579e96">
+								<datasetRun subDataset="destinatariosDS" uuid="ec7a293b-d1ca-4edc-b19d-f99df1ac29c4">
 									<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/destinatario/detalles/detalle")]]></dataSourceExpression>
 								</datasetRun>
-								<jr:listContents height="25" width="400">
+								<jr:listContents height="30" width="500">
 									<textField>
-										<reportElement x="0" y="0" width="100" height="25" uuid="3cfb0361-b3ca-4e08-8791-df7a9a3a44ca">
+										<reportElement style="etiqueta-celda" x="0" y="0" width="125" height="30" uuid="11b6c001-5fec-4390-b660-7f59d5ce3694">
 											<property name="com.jaspersoft.studio.unit.width" value="px"/>
-											<property name="com.jaspersoft.studio.unit.height" value="px"/>
 										</reportElement>
+										<box topPadding="0"/>
 										<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
 									</textField>
 									<textField>
-										<reportElement x="100" y="0" width="100" height="25" uuid="8b39f42c-ed97-45f7-85bc-ea882fc85200">
+										<reportElement style="etiqueta-celda" x="125" y="0" width="125" height="30" uuid="b544e524-920c-41a8-9150-2b0245ca6630">
 											<property name="com.jaspersoft.studio.unit.width" value="px"/>
-											<property name="com.jaspersoft.studio.unit.height" value="px"/>
 										</reportElement>
+										<box topPadding="0"/>
 										<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+									</textField>
+									<textField>
+										<reportElement style="etiqueta-celda" x="250" y="0" width="125" height="30" uuid="f2478cee-dfd8-402d-9b57-e1c2d0bbe228">
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										</reportElement>
+										<box topPadding="0"/>
+										<textFieldExpression><![CDATA[$F{codigoInterno}]]></textFieldExpression>
+									</textField>
+									<textField>
+										<reportElement style="etiqueta-celda" x="375" y="0" width="125" height="30" uuid="6bbe6e08-3f2f-4693-82b7-891f03cdfaec">
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										</reportElement>
+										<box topPadding="0"/>
+										<textFieldExpression><![CDATA[$F{codigoAdicional}]]></textFieldExpression>
 									</textField>
 								</jr:listContents>
 							</jr:list>
