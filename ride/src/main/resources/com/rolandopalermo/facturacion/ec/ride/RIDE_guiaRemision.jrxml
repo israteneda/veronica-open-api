@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RIDE_retencion" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="23078fe1-b005-44ae-8dc0-7a1396cac66c">
 	<property name="ireport.zoom" value="1.6500000000000052"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<style name="etiqueta-texto" hAlign="Left" vAlign="Middle" isBlankWhenNull="true">
+	<style name="etiqueta-texto" hTextAlign="Left" hImageAlign="Left" vTextAlign="Middle" vImageAlign="Middle" isBlankWhenNull="true">
 		<paragraph leftIndent="2"/>
 	</style>
-	<style name="etiqueta-celda" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontSize="8" isBold="false">
+	<style name="etiqueta-celda" hTextAlign="Left" hImageAlign="Left" vTextAlign="Middle" vImageAlign="Middle" isBlankWhenNull="true" fontSize="8" isBold="false">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
 			<topPen lineWidth="1.0" lineColor="#000000"/>
@@ -57,11 +58,17 @@
 		<field name="numDocSustento" class="java.lang.String">
 			<fieldDescription><![CDATA[numDocSustento]]></fieldDescription>
 		</field>
+		<field name="cantidad" class="java.lang.String">
+			<fieldDescription><![CDATA[cantidad]]></fieldDescription>
+		</field>
+		<field name="descripcion" class="java.lang.String">
+			<fieldDescription><![CDATA[descripcion]]></fieldDescription>
+		</field>
 	</subDataset>
 	<parameter name="numeroAutorizacion" class="java.lang.String"/>
 	<parameter name="fechaAutorizacion" class="java.lang.String"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["D:\\Proyectos_Públicos\\veronica\\veronica-ride\\src\\main\\resources\\com\\rolandopalermo\\facturacion\\ec\\ride\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["//media//israteneda//data//code//personal//java//veronica-open-api//ride//src//main//resources//com//rolandopalermo//facturacion//ec//ride"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="hmapTiposDocumentos" class="java.util.HashMap"/>
 	<parameter name="logo" class="java.lang.String"/>
@@ -463,9 +470,9 @@
 				<imageExpression><![CDATA[new java.io.ByteArrayInputStream(org.apache.commons.codec.binary.Base64.decodeBase64($P{logo}.getBytes()))]]></imageExpression>
 			</image>
 		</band>
-		<band height="228" splitType="Immediate">
+		<band height="260" splitType="Immediate">
 			<componentElement>
-				<reportElement x="0" y="0" width="555" height="228" uuid="90cd9c1d-1559-4c63-b3c8-705037ab7cfa"/>
+				<reportElement x="0" y="0" width="555" height="260" uuid="90cd9c1d-1559-4c63-b3c8-705037ab7cfa"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="destinatariosDS" uuid="384b921c-04e4-4767-a077-4945f827f798">
 						<datasetParameter name="SUBREPORT_DIR">
@@ -476,9 +483,9 @@
 						</datasetParameter>
 						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/guiaRemision/destinatarios/destinatario")]]></dataSourceExpression>
 					</datasetRun>
-					<jr:listContents height="228" width="555">
+					<jr:listContents height="260" width="555">
 						<rectangle>
-							<reportElement positionType="Float" stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="555" height="219" uuid="5b014818-f866-44be-84c1-f2b274af2dfb"/>
+							<reportElement positionType="Float" stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="555" height="260" uuid="5b014818-f866-44be-84c1-f2b274af2dfb"/>
 							<graphicElement>
 								<pen lineColor="#013870"/>
 							</graphicElement>
@@ -623,14 +630,76 @@
 							</textElement>
 							<textFieldExpression><![CDATA[$F{motivoTraslado}]]></textFieldExpression>
 						</textField>
-						<subreport>
-							<reportElement style="etiqueta-celda" x="77" y="188" width="400" height="20" isRemoveLineWhenBlank="true" uuid="ce4e6548-59d5-4143-b3ec-4194f7f19ca3"/>
-							<subreportParameter name="IDENTIFICACION_DESTINATARIO">
-								<subreportParameterExpression><![CDATA[$F{identificacionDestinatario}]]></subreportParameterExpression>
-							</subreportParameter>
-							<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/destinatario/detalles/detalle")]]></dataSourceExpression>
-							<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "RIDE_guia_remision_dest_detalles.jasper"]]></subreportExpression>
-						</subreport>
+						<staticText>
+							<reportElement style="etiqueta-celda" mode="Opaque" x="70" y="191" width="100" height="20" forecolor="#FFFFFF" backcolor="#013870" uuid="a9f2c9b9-7cb6-42a5-bda6-2ed5dde57af8"/>
+							<box>
+								<pen lineColor="#013870"/>
+								<topPen lineColor="#013870"/>
+								<leftPen lineColor="#013870"/>
+								<bottomPen lineColor="#013870"/>
+								<rightPen lineColor="#013870"/>
+							</box>
+							<text><![CDATA[Cantidad]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="etiqueta-celda" mode="Opaque" x="170" y="191" width="100" height="20" forecolor="#FFFFFF" backcolor="#013870" uuid="7729ff55-f96b-4400-96a8-218b58b58311"/>
+							<box>
+								<pen lineColor="#013870"/>
+								<topPen lineColor="#013870"/>
+								<leftPen lineColor="#013870"/>
+								<bottomPen lineColor="#013870"/>
+								<rightPen lineColor="#013870"/>
+							</box>
+							<text><![CDATA[Descripción]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="etiqueta-celda" mode="Opaque" x="270" y="191" width="100" height="20" forecolor="#FFFFFF" backcolor="#013870" uuid="43f1cb26-3d5f-4f60-89a3-c688b27fd138"/>
+							<box>
+								<pen lineColor="#013870"/>
+								<topPen lineColor="#013870"/>
+								<leftPen lineColor="#013870"/>
+								<bottomPen lineColor="#013870"/>
+								<rightPen lineColor="#013870"/>
+							</box>
+							<text><![CDATA[Código Principal]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="etiqueta-celda" mode="Opaque" x="370" y="191" width="100" height="20" forecolor="#FFFFFF" backcolor="#013870" uuid="40ba1098-d0a5-4706-a362-d782fb1ebc94"/>
+							<box>
+								<pen lineColor="#013870"/>
+								<topPen lineColor="#013870"/>
+								<leftPen lineColor="#013870"/>
+								<bottomPen lineColor="#013870"/>
+								<rightPen lineColor="#013870"/>
+							</box>
+							<text><![CDATA[Código Auxiliar]]></text>
+						</staticText>
+						<componentElement>
+							<reportElement x="70" y="210" width="400" height="25" uuid="f9cae7fc-f952-46a1-81e9-e9980c41c313">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							</reportElement>
+							<jr:list>
+								<datasetRun subDataset="destinatariosDS" uuid="ad0bd825-506c-435e-9bc3-4f5247579e96">
+									<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/destinatario/detalles/detalle")]]></dataSourceExpression>
+								</datasetRun>
+								<jr:listContents height="25" width="400">
+									<textField>
+										<reportElement x="0" y="0" width="100" height="25" uuid="3cfb0361-b3ca-4e08-8791-df7a9a3a44ca">
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+											<property name="com.jaspersoft.studio.unit.height" value="px"/>
+										</reportElement>
+										<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+									</textField>
+									<textField>
+										<reportElement x="100" y="0" width="100" height="25" uuid="8b39f42c-ed97-45f7-85bc-ea882fc85200">
+											<property name="com.jaspersoft.studio.unit.width" value="px"/>
+											<property name="com.jaspersoft.studio.unit.height" value="px"/>
+										</reportElement>
+										<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+									</textField>
+								</jr:listContents>
+							</jr:list>
+						</componentElement>
 					</jr:listContents>
 				</jr:list>
 			</componentElement>
